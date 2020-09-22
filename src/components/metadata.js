@@ -11,7 +11,9 @@ export default function Metadata(props) {
         color={'#92909d'}
         size={18}
       />
-      <Text style={{color: '#92909d'}}>{props.text}</Text>
+      <Text style={{color: '#92909d'}}>
+        {props.time ? props.text + 'm ago' : props.text + ' Comments'}
+      </Text>
     </View>
   );
 }

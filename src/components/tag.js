@@ -1,10 +1,20 @@
 import * as React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
-export default function Tag() {
+export default function Tag(props) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>DESIGN</Text>
+    <View
+      style={[
+        styles.container,
+        {backgroundColor: props.text == 'DESIGN' ? '#5f009f' : '#fbdc56'},
+      ]}>
+      <Text
+        style={[
+          styles.text,
+          {color: props.text == 'DESIGN' ? 'white' : 'black'},
+        ]}>
+        {props.text}
+      </Text>
     </View>
   );
 }
@@ -18,7 +28,6 @@ const styles = new StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     marginTop: 5,
-    backgroundColor: '#5f009f',
   },
   text: {fontWeight: 'bold', color: 'white', fontSize: 14},
 });

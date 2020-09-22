@@ -1,22 +1,21 @@
+import {useLinkProps} from '@react-navigation/native';
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Metadata from './metadata';
 import Tag from './tag';
 
-export default function CollapsedPost() {
+export default function CollapsedPost(props) {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <View style={styles.image} />
+        <Image style={styles.image} source={{uri: props.image}} />
         <View style={{flexDirection: 'column', marginLeft: 15}}>
-          <Tag />
-          <Text style={styles.heading}>
-            How to run a More Effective Meeting
-          </Text>
+          <Tag text={props.tag} />
+          <Text style={styles.heading}>{props.header}</Text>
           <View style={styles.metadata}>
-            <Metadata time text="10s ago" />
-            <Metadata comment text="20 comments" />
+            <Metadata time text={props.date} />
+            <Metadata comment text={props.comments} />
           </View>
         </View>
       </View>
